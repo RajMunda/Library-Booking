@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,12 +34,19 @@
             <a class="nav-link" href="contactus.php">Contact Us</a>
           </li>
         </ul>
+        <?php if(!isset($_SESSION['user'])){ ?>
+
         <form class="d-flex">
-            <a class="nav-link active" aria-current="page"  href="Registration.php">Register</a>
+            <a class="nav-link btn btn-outline-success text-light mx-2" aria-current="page"  href="Registration.php">Register</a>
             </form>
             <form>
-            <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+            <a class="nav-link btn btn-outline-info text-light mx-2" aria-current="page" href="login.php">Login</a>
             </form>
+            <?php } else { ?>
+            <form>
+            <a class="nav-link btn btn-outline-danger text-light mx-2" aria-current="page" href="log_out.php">Log Out</a>
+            </form>
+            <?php } ?>
       </div>
     </div>
   </nav>

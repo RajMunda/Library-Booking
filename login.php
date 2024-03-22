@@ -41,16 +41,16 @@
   
   <div class="container text-light mx-auto">
     <h1 class="mb-4">Login</h1>
-    <form>
+    <form action="log_handle.php" method='POST'>
       <div class="mb-3">
         <label for="userId" class="form-label">User ID</label>
-        <input type="text" class="form-control" id="userId" placeholder="Enter your user ID" required>
+        <input type="text" class="form-control" id="userId" placeholder="Enter your user ID" name='User_Id' required>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password" name='Password' required>
       </div>
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" class="btn btn-primary" name='login'>Login</button>
     </form>
   </div>
 
