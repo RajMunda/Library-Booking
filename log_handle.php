@@ -18,10 +18,10 @@ if(isset($_POST["login"])) {
         $user = mysqli_fetch_assoc($result);
 
         $_SESSION['user'] = $user;
-        // echo $user['email'];
+
         header('Location:./index.php'); 
     } else {
-     echo "Invalid credentials. Please try again.";
+     echo "<SCRIPT> window.location.href = './login.php'; alert('Invalid credentials.'); </script>";
       }
     
     

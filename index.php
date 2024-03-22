@@ -5,17 +5,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./asset/icon/icon.jpg" type="image/x-icon">
   <title>Library Seat Booking System</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .myImg{
+        height: 30vh;
+    }
+    .nav-icon{
+        width: 4vw;
+    }
+    .carousel{
+        height: 90vh;
+    }
+    .cimg{
+        height: 90vh;
+    }
+  </style>
     
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       
-      <img src="images/logo.jpg" class="img fluid" width="10%" alt="">
+      <img src="images/logo.jpg" class="img fluid nav-icon m-2"  alt="">
             <a class="navbar-brand" href="#">Library Seat<br> Booking System </a>    
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,7 +70,9 @@
       </div>
     </div>
   </nav>
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+  <!--Carousel-->
+  <div id="carouselExampleIndicators" class="carousel slide mb-3" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -63,16 +85,16 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/1.jpg" class="d-block w-100" style="max-height: 1000px; width: auto;" alt="...">
+                <img src="images/1.jpg" class="d-block w-100 cimg" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="images/2.jpg" class="d-block w-100" style="max-height: 1000px; width: auto;" alt="...">
+                <img src="images/2.jpg" class="d-block w-100 cimg" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="images/3.jpg" class="d-block w-100" style="max-height: 1000px; width: auto;" alt="...">
+                <img src="images/3.jpg" class="d-block w-100 cimg" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="images/4.jpg" class="d-block w-100" style="max-height: 1000px; width: auto;" alt="...">
+                <img src="images/4.jpg" class="d-block w-100 cimg" alt="...">
             </div>
 
         </div>
@@ -93,24 +115,23 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    <!--Carousel End-->
 
-
-
-
+    <!--Main-->
     <div class="container  my-4">
         <div class="card-group">
-            <div class="card">
-                <img src="images/maulana.jpg" class="card-img-top img-thumbnail" alt="...">
+            <div class="card m-2">
+                <img src="images/maulana.jpg" class="card-img-top img-thumbnail myImg" alt="...">
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary"><b>Maulana Azad Library</b>
+                    <a href='./maulanaAzadLibrary.php'><button type="button" class="btn btn-primary"><b>Maulana Azad Library</b>
                     <h5 class="card-title">Address:</h5>
                     <p class="card-text"> Anjuman Plaza, Top Floor of, Mahatma Gandhi Main Rd, Ranchi, Jharkhand 834001</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                    </button>
+                    </button></a>
                 </div>
             </div>
-            <div class="card">
-                <img src="images/urdu.jpg" class="card-img-top img-thumbnail" alt="...">
+            <div class="card m-2">
+                <img src="images/urdu.jpg" class="card-img-top img-thumbnail myImg" alt="...">
                 <div class="card-body">
                     <button type="button" class="btn btn-success"><b>Urdu library</b>
                     <h5 class="card-title">Address:</h5>
@@ -120,8 +141,8 @@
                     </button>
                 </div>
             </div>
-            <div class="card" m-y-4>
-                <img src="images/ranchi.jpg" class="card-img-top img-thumbnail" alt="...">
+            <div class="card m-2" >
+                <img src="images/ranchi.jpg" class="card-img-top img-thumbnail myImg" alt="...">
                 <div class="card-body"><button type="button" class="btn btn-danger"><b>Ranchi Library</b>
                     <h5 class="card-title">Address:</h5>
                     <p class="card-text">Near Firayalal Sharda Babu Lane, &, Mahatma Gandhi Main Rd, Ranchi, Jharkhand 834001</p>
@@ -132,6 +153,9 @@
         </div>
 
     </div>
+    <!--Main end-->
+
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

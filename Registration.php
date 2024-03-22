@@ -78,17 +78,38 @@
       
         window.addEventListener('load', function(e) { 
           console.log('The page has finished loading.'); 
+
+          //Listner method for contact no input
           document.querySelector('#phone').addEventListener('input', function() {
-            var phone =this.value;
-
-            //console.log(this.value)
-            var isValid = /^[0-9]+$/.match(phone);
+            var phone = this.value;
+            var isValid = /^[0-9]+$/.test(phone);
             if(!isValid){
-              this.value=this.value.slice(0,this.value.length);
-              //$(this).val($(this).val().slice(0,$(this).val().length));
-
+              this.value=phone.slice(0,phone.length-1);
             }
+            this.value=this.value.slice(0,9);
           });
+
+          //Listner method for pwd fields
+          document.querySelector('#confirmPassword').addEventListener('change', function() {
+            var cpwd = this.value;
+            var pass = document.querySelector('#password').value;
+            if(cpwd != pass){
+              this.value = '';
+              document.querySelector('#password').value = '';
+              alert('Password do not match.!');
+              
+            }
+            this.value=this.value.slice(0,9);
+          });
+        });
+
+        //
+        document.querySelector('#name').addEventListener('input', function() {
+            var name = this.value;
+            var isValid = /^[a-zA-Z\s]+$/.test(name);
+            if(!isValid){
+              this.value=name.slice(0,name.length-1);
+            }
         });
 
     </script>
