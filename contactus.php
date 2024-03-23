@@ -1,5 +1,5 @@
 <?php session_start(); 
-    $title='Service';
+    $title='Contact Us';
     include './includes/top.php';
     //Main Part
     include './includes/bottom.php';
