@@ -79,7 +79,7 @@
             if(!isValid){
               this.value=phone.slice(0,phone.length-1);
             }
-            this.value=this.value.slice(0,9);
+            this.value=this.value.slice(0,10);
           });
 
           //Listner method for pwd fields
