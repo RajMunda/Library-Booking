@@ -15,7 +15,7 @@ if(isset($_POST["login"])) {
 
           session_start();
         
-        $user = mysqli_fetch_assoc($result);
+        $user = $result->fetch_assoc();
 
         $_SESSION['user'] = $user;
 
