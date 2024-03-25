@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2024 at 12:54 AM
+-- Generation Time: Mar 25, 2024 at 09:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -57,17 +57,33 @@ CREATE TABLE `slot` (
   `lib_id` int(11) NOT NULL,
   `s_start` time NOT NULL,
   `s_end` time NOT NULL,
-  `capacity` int(11) NOT NULL,
-  `occupied` int(11) DEFAULT NULL
+  `capacity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `slot`
 --
 
-INSERT INTO `slot` (`slot_id`, `lib_id`, `s_start`, `s_end`, `capacity`, `occupied`) VALUES
-(1, 4, '08:00:00', '11:00:00', 50, NULL),
-(2, 5, '08:00:00', '11:00:00', 30, NULL);
+INSERT INTO `slot` (`slot_id`, `lib_id`, `s_start`, `s_end`, `capacity`) VALUES
+(1, 4, '08:00:00', '11:00:00', 50),
+(2, 5, '08:00:00', '11:00:00', 30),
+(3, 4, '11:00:00', '02:00:00', 20),
+(4, 4, '02:00:00', '05:00:00', 30),
+(5, 4, '05:00:00', '08:00:00', 50);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slot_order_detail`
+--
+
+CREATE TABLE `slot_order_detail` (
+  `slot_dtl_id` int(11) NOT NULL,
+  `slot_id` int(11) NOT NULL,
+  `slot_order_date` datetime NOT NULL,
+  `deleted` tinyint(1) DEFAULT 0,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -111,6 +127,14 @@ ALTER TABLE `slot`
   ADD KEY `lib_id` (`lib_id`);
 
 --
+-- Indexes for table `slot_order_detail`
+--
+ALTER TABLE `slot_order_detail`
+  ADD PRIMARY KEY (`slot_dtl_id`),
+  ADD UNIQUE KEY `slot_id` (`slot_id`,`slot_order_date`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `stud`
 --
 ALTER TABLE `stud`
@@ -130,7 +154,13 @@ ALTER TABLE `libraries`
 -- AUTO_INCREMENT for table `slot`
 --
 ALTER TABLE `slot`
-  MODIFY `slot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `slot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `slot_order_detail`
+--
+ALTER TABLE `slot_order_detail`
+  MODIFY `slot_dtl_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `stud`
@@ -147,6 +177,13 @@ ALTER TABLE `stud`
 --
 ALTER TABLE `slot`
   ADD CONSTRAINT `slot_ibfk_1` FOREIGN KEY (`lib_id`) REFERENCES `libraries` (`id`);
+
+--
+-- Constraints for table `slot_order_detail`
+--
+ALTER TABLE `slot_order_detail`
+  ADD CONSTRAINT `slot_order_detail_ibfk_1` FOREIGN KEY (`slot_id`) REFERENCES `slot` (`slot_id`),
+  ADD CONSTRAINT `slot_order_detail_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `stud` (`stud_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -50,10 +50,91 @@
                         }
                     ?>
                 </select>
+                <div>
+                    <span id='avaiblity'></span>
+                    <div id='order-btn' class="btn btn-success m-2 d-none">Book a seat now</div>
+                </div>
             </div>
             </div>
         </div>
     </div>
+    <script>
+        
+        window.addEventListener('load', function(e) {
+            document.querySelector('#order-btn').addEventListener('click', function () {
+
+                const requestData = {
+                    slotID: document.querySelector('#lib_slot').value
+                };
+
+                fetch('placeOrder.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Process the JSON data
+                    console.log(data.message);
+                    if(data.message > 0){
+                        console.log(data.query);
+                        document.querySelector('#avaiblity').textContent = data.message + ' Seats available';
+                    }
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('Fetch error:', error);
+                });
+            });
+
+            document.querySelector('#lib_slot').addEventListener('change', function () {
+                document.querySelector('#avaiblity').textContent = '';
+                document.querySelector('#order-btn').classList.add('none');
+                document.querySelector('#order-btn').classList.remove('inline-block');
+                console.log(this.value);
+                // Data to be sent to the server
+                const requestData = {
+                    slotID: this.value
+                };
+
+                fetch('fetchSlotAvailability.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Process the JSON data
+                    console.log(data.message);
+                    if(data.message > 0){
+                        console.log(data.query);
+                        document.querySelector('#avaiblity').textContent = data.message + ' Seats available';
+                        document.querySelector('#order-btn').classList.add('inline-block');
+                        document.querySelector('#order-btn').classList.remove('none');
+                    }
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('Fetch error:', error);
+                });
+
+            })
+        });
+    </script>
 <?php
             include './includes/bottom.php';
         }else{
