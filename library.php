@@ -52,7 +52,7 @@
                 </select>
                 <div>
                     <span id='avaiblity'></span>
-                    <div id='order-btn' class="btn btn-success m-2 d-none">Book a seat now</div>
+                    <button id='order-btn' class="btn btn-success m-2 d-none">Book a seat now</button>
                 </div>
             </div>
             </div>
@@ -61,12 +61,13 @@
     <script>
         
         window.addEventListener('load', function(e) {
-            document.querySelector('#order-btn').addEventListener('click', function () {
 
+            document.querySelector('#order-btn').addEventListener('click', function () {
+                console.log(document.querySelector('#lib_slot').value);
                 const requestData = {
                     slotID: document.querySelector('#lib_slot').value
                 };
-
+                console.log(requestData)
                 fetch('placeOrder.php', {
                     method: 'POST',
                     headers: {
@@ -75,6 +76,7 @@
                     body: JSON.stringify(requestData)
                 })
                 .then(response => {
+                    //console.log(response);
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
@@ -82,22 +84,22 @@
                 })
                 .then(data => {
                     // Process the JSON data
-                    console.log(data.message);
-                    if(data.message > 0){
-                        console.log(data.query);
-                        document.querySelector('#avaiblity').textContent = data.message + ' Seats available';
+                    console.log(data.query);
+                    if(data.message == "New record created successfully"){
+                        alert('Order done');
+                        window.location.href = './index.php';
                     }
                 })
                 .catch(error => {
                     // Handle errors
-                    console.error('Fetch error:', error);
+                    alert('This slot is already booked');
                 });
             });
 
             document.querySelector('#lib_slot').addEventListener('change', function () {
                 document.querySelector('#avaiblity').textContent = '';
-                document.querySelector('#order-btn').classList.add('none');
-                document.querySelector('#order-btn').classList.remove('inline-block');
+                document.querySelector('#order-btn').classList.add('d-none');
+                document.querySelector('#order-btn').classList.remove('d-inline-block');
                 console.log(this.value);
                 // Data to be sent to the server
                 const requestData = {
@@ -123,8 +125,8 @@
                     if(data.message > 0){
                         console.log(data.query);
                         document.querySelector('#avaiblity').textContent = data.message + ' Seats available';
-                        document.querySelector('#order-btn').classList.add('inline-block');
-                        document.querySelector('#order-btn').classList.remove('none');
+                        document.querySelector('#order-btn').classList.add('d-inline-block');
+                        document.querySelector('#order-btn').classList.remove('d-none');
                     }
                 })
                 .catch(error => {

@@ -12,14 +12,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userID = $_SESSION['user']['stud_id'];
 
         include "Database/connection.php"; 
-        $sql = "";
-        $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
+        $sql = "INSERT INTO `slot_order_detail`(`slot_id`, `deleted`, `user_id`) VALUES ($slotID, 'N', $userID)";
+
+        if ($conn->query($sql) === TRUE) {
+            $result = "New record created successfully";
+        } else {
+            $result = "Error: Cant insert";// . $sql . "<br>" . $conn->error;
+        }
         
         // Perform any desired operations with the data
-        
+        //echo$result;
         // Send a response (optional)
-        $response = array('status' => 'success', 'message' => $row['available'], 'query' => $sql);
+        $response = array('status' => 'success', 'message' => $result, 'query' => $sql);
         echo json_encode($response);
     } else {
         // Send an error response if data could not be decoded

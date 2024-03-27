@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2024 at 09:19 PM
+-- Generation Time: Mar 27, 2024 at 04:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -69,7 +69,8 @@ INSERT INTO `slot` (`slot_id`, `lib_id`, `s_start`, `s_end`, `capacity`) VALUES
 (2, 5, '08:00:00', '11:00:00', 30),
 (3, 4, '11:00:00', '02:00:00', 20),
 (4, 4, '02:00:00', '05:00:00', 30),
-(5, 4, '05:00:00', '08:00:00', 50);
+(5, 4, '05:00:00', '08:00:00', 50),
+(6, 1, '08:00:00', '12:00:00', 60);
 
 -- --------------------------------------------------------
 
@@ -80,10 +81,22 @@ INSERT INTO `slot` (`slot_id`, `lib_id`, `s_start`, `s_end`, `capacity`) VALUES
 CREATE TABLE `slot_order_detail` (
   `slot_dtl_id` int(11) NOT NULL,
   `slot_id` int(11) NOT NULL,
-  `slot_order_date` datetime NOT NULL,
-  `deleted` tinyint(1) DEFAULT 0,
+  `slot_order_date` date NOT NULL DEFAULT current_timestamp(),
+  `deleted` char(1) NOT NULL DEFAULT 'N',
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `slot_order_detail`
+--
+
+INSERT INTO `slot_order_detail` (`slot_dtl_id`, `slot_id`, `slot_order_date`, `deleted`, `user_id`) VALUES
+(1, 1, '2024-03-27', 'N', 7),
+(2, 4, '2024-03-27', 'N', 7),
+(3, 5, '2024-03-27', 'N', 7),
+(4, 3, '2024-03-27', 'N', 7),
+(34, 2, '2024-03-27', 'N', 7),
+(38, 6, '2024-03-27', 'N', 7);
 
 -- --------------------------------------------------------
 
@@ -154,13 +167,13 @@ ALTER TABLE `libraries`
 -- AUTO_INCREMENT for table `slot`
 --
 ALTER TABLE `slot`
-  MODIFY `slot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `slot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `slot_order_detail`
 --
 ALTER TABLE `slot_order_detail`
-  MODIFY `slot_dtl_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `slot_dtl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `stud`
