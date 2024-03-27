@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION["admin_logged_in"])){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,3 +57,6 @@
     </div>
 </body>
 </html>
+<?php }else{
+    echo"You are not authorised to view this page.! Please close this page for security reasons";
+}?>

@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['createLibSubmit'])) {
 
     $stmt->execute();
 
-    echo "Library added successfully.<a href='./create_lib.php'>Back to Create Library</a>";
+    echo "Library added successfully.<a href='./create_lib.php'>Back to Create Library</a></br><a href='./admin_dashboard.php'>Admin Dashboard</a>";
 
     $stmt->close();
     $conn->close();

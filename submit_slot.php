@@ -13,7 +13,7 @@ if (isset($_POST['slot_create_submit'])) {
     $sql = "INSERT INTO slot (lib_id, s_start, s_end, capacity) VALUES ('$lib_id', '$s_start', '$s_end', '$capacity')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Slot details added successfully. <a href='./create_slot.php'>Add more slot</a>";
+        echo "Slot details added successfully. <a href='./create_slot.php'>Add more slot</a></br><a href='./admin_dashboard.php'>Admin Dashboard</a>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

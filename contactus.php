@@ -59,7 +59,6 @@
       </div>
     </div>
   </div>
-    //Main Part
     <?php
     include './includes/bottom.php';
 ?>

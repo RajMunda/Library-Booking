@@ -34,7 +34,6 @@
       <p>Thank you for choosing our Library Seat Booking System. We look forward to serving you!</p>
     </div>
   </div>
-    //Main Part
     <?php
     include './includes/bottom.php';
 ?>
