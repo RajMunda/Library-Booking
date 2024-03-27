@@ -15,7 +15,6 @@ if (isset($_POST['admin_login_submit_btn'])) {
     // Check if username and password match the admin credentials
     if ($username === $admin_username && $password === $admin_password) {
         // Authentication successful
-        session_destroy();
         $_SESSION["admin_logged_in"] = true;
         header("Location: admin_dashboard.php");
         exit();

@@ -20,6 +20,9 @@ if (isset($_SESSION["admin_logged_in"])){
 
             <!-- Button to Create Slot -->
             <a href="create_slot.php" class="btn btn-primary">Create Slot</a>
+
+            <!-- Logout Button -->
+            <a href="log_out.php" class="btn btn-danger">Logout</a>
         </center>
     </div>
 </body>
