@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2024 at 04:41 PM
+-- Generation Time: Mar 27, 2024 at 09:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -96,7 +96,10 @@ INSERT INTO `slot_order_detail` (`slot_dtl_id`, `slot_id`, `slot_order_date`, `d
 (3, 5, '2024-03-27', 'N', 7),
 (4, 3, '2024-03-27', 'N', 7),
 (34, 2, '2024-03-27', 'N', 7),
-(38, 6, '2024-03-27', 'N', 7);
+(38, 6, '2024-03-27', 'N', 7),
+(39, 1, '2024-03-28', 'N', 7),
+(40, 1, '2024-03-28', 'N', 8),
+(41, 1, '2024-03-28', 'N', 6);
 
 -- --------------------------------------------------------
 
@@ -111,6 +114,9 @@ CREATE TABLE `stud` (
   `Phone_No.` varchar(10) DEFAULT NULL,
   `Email` varchar(255) DEFAULT NULL,
   `User_Id` varchar(255) NOT NULL,
+  `answer1` varchar(255) NOT NULL,
+  `answer2` varchar(255) NOT NULL,
+  `answer3` varchar(255) NOT NULL,
   `Password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -118,9 +124,10 @@ CREATE TABLE `stud` (
 -- Dumping data for table `stud`
 --
 
-INSERT INTO `stud` (`stud_id`, `Name`, `Address`, `Phone_No.`, `Email`, `User_Id`, `Password`) VALUES
-(6, 'raj', 'kokar', '8971613523', 'raj23@gmail.com', 'raj123', '123456'),
-(7, 'Shreyansh Prasad', 'Market Road, Ghaghra, dist. Gumla, Jharkhand', '950478916.', 'sshreyansh199@gmail.com', 'sprasa7', 'Target@3');
+INSERT INTO `stud` (`stud_id`, `Name`, `Address`, `Phone_No.`, `Email`, `User_Id`, `answer1`, `answer2`, `answer3`, `Password`) VALUES
+(6, 'raj', 'kokar', '8971613523', 'raj23@gmail.com', 'raj123', '', '', '', '123456'),
+(7, 'Shreyansh Prasad', 'Market Road, Ghaghra, dist. Gumla, Jharkhand', '950478916.', 'sshreyansh199@gmail.com', 'sprasa78', '', '', '', 'Target@33'),
+(8, 'Shreyansh', 'New Colony Pakdih, Jamtara 834009', '9123447469', 'sshreyansh199@gmail.com', 'sprasa7', 'Biography of Milkha Singh', 'Ranchi', 'Jimmy', 'Locked@0');
 
 --
 -- Indexes for dumped tables
@@ -173,13 +180,13 @@ ALTER TABLE `slot`
 -- AUTO_INCREMENT for table `slot_order_detail`
 --
 ALTER TABLE `slot_order_detail`
-  MODIFY `slot_dtl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `slot_dtl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `stud`
 --
 ALTER TABLE `stud`
-  MODIFY `stud_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `stud_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

@@ -8,11 +8,14 @@ if(isset($_POST["submit"])){
     $studentEmail = $_POST["email"];
     $studentuserId = $_POST["user_id"];
     $studentPassword = $_POST["pwd"];
+    $answer1 = $_POST['answer1'];
+    $answer2 = $_POST['answer2'];
+    $answer3 = $_POST['answer3'];
 
     include "Database/connection.php";  
 
 
-    $sql = "INSERT INTO `stud`(`Name`, `Address`, `Phone_No.`, `Email`, `User_Id`, `Password`) VALUES('$studentName','$studentAddress','$studentPhone_No.','$studentEmail','$studentuserId','$studentPassword')";
+    $sql = "INSERT INTO `stud`(`Name`, `Address`, `Phone_No.`, `Email`, `User_Id`,`answer1`, `answer2`, `answer3`, `Password`) VALUES('$studentName','$studentAddress','$studentPhone_No.','$studentEmail','$studentuserId', '$answer1', '$answer2', '$answer3', '$studentPassword')";
 
 
     if ($conn->query($sql) === TRUE) {

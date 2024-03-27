@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userID = $_SESSION['user']['stud_id'];
 
         include "Database/connection.php"; 
-        $sql = "SELECT t.capacity - t2.occupied `available` FROM `slot` t,  (select COUNT(*) `occupied`, t1.slot_id from `slot_order_detail` t1 where t1.slot_id = $slotID and t1.user_id = $userID and t1.slot_order_date = CURRENT_DATE()) t2 where t.slot_id = $slotID";
+        $sql = "SELECT t.capacity - t2.occupied `available` FROM `slot` t,  (select COUNT(*) `occupied`, t1.slot_id from `slot_order_detail` t1 where t1.slot_id = $slotID and t1.slot_order_date = CURRENT_DATE()) t2 where t.slot_id = $slotID";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
         

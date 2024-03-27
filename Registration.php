@@ -55,6 +55,51 @@
             <label for="userId" class="form-label">User ID</label>
             <input type="text" class="form-control" id="userId" placeholder="Enter your user ID" name="user_id" required>
         </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="security1" class="form-label">Security Question 1</label>
+                    <input type="text" class="form-control" id="security1" value="My favourite book is" name="security1" required disabled>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="answer1" class="form-label">Security Answer 1</label>
+                    <input type="text" class="form-control" id="answer1" placeholder="My favourite book is" name="answer1" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="security2" class="form-label">Security Question 2</label>
+                    <input type="text" class="form-control" id="security2" value="My favourite place is" name="security2" required disabled>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="answer2" class="form-label">Security Answer 2</label>
+                    <input type="text" class="form-control" id="answer2" placeholder="My favourite place is" name="answer2" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="security3" class="form-label">Security Question 3</label>
+                    <input type="text" class="form-control" id="security3" value="My firt pet was" name="security3" required disabled>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="answer3" class="form-label">Security Answer 3</label>
+                    <input type="text" class="form-control" id="answer3" placeholder="My first pet was" name="answer3" required>
+                </div>
+            </div>
+        </div>
+        
+        
+        
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
@@ -92,7 +137,6 @@
               alert('Password do not match.!');
               
             }
-            this.value=this.value.slice(0,9);
           });
         });
 

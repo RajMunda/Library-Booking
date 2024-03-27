@@ -63,10 +63,6 @@
         <div class="service-icon">
           <i class="bi bi-calendar-event"></i>
         </div>
-        <div class="service-content">
-          <div class="service-title">Calendar Integration</div>
-          <div class="service-description">Sync your bookings with your calendar application to stay organized and never miss a study session.</div>
-        </div>
       </div>
       <div class="service-item">
         <div class="service-icon">

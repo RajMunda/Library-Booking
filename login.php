@@ -43,7 +43,12 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" placeholder="Enter your password" name='Password' required>
         </div>
-        <button type="submit" class="btn btn-primary" name='login'>Login</button>
+        <div class="mb-3">
+            <center><button type="submit" class="btn btn-primary" name='login'>Login</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+            <a href="./forget.php" class="btn btn-warning">Forgot Password?</a></center>
+        </div>
+        
         </form>
     </div>
 <?php
